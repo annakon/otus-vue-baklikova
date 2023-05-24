@@ -11,6 +11,7 @@
      <p class="card-text">
        {{ props.goods.description }}
      </p>
+     <p class="card-text text-muted">rate: {{ props.goods.rating.rate }} count: {{ props.goods.rating.count }}</p>
    </div>
   </div>
 </template>
