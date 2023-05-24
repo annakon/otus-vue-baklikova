@@ -1,8 +1,10 @@
 <template>
-  <div class="cardBody">
+  <div class="card">
+   <div class="cardBody">
     <h5 class="card-title">
       {{ props.goods.title }}
     </h5>
+   </div>
   </div>
 </template>
 
