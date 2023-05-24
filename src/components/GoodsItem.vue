@@ -5,6 +5,12 @@
     <h5 class="card-title">
       {{ props.goods.title }}
     </h5>
+     <h6 class="card-subtitle mb-2 text-muted">
+       {{ props.goods.price }}
+     </h6>
+     <p class="card-text">
+       {{ props.goods.description }}
+     </p>
    </div>
   </div>
 </template>
