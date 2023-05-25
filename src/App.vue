@@ -8,27 +8,28 @@ import axios from "axios";
 ])*/
 let goods = ref();
 let errored=ref();
-let loading=true;
-onMounted(() => {
-  axios
-      .get('https://fakestoreapi.com/products')
-      .then(response => (goods = response.data.bpi))
-      .catch(error => {
-        console.log(error);
-        errored = true;
-      })
-      .finally(() => (loading = false));
+let loading=ref(true);
+onMounted(async () => {
+    await axios
+        .get('https://fakestoreapi.com/products')
+        .then(response => (goods = response.data))
+        .catch(error => {
+          console.log(error);
+          errored = true;
+        })
+        .finally(() => (loading = false));
   /*fetch(`https://fakestoreapi.com/products`)
       .then((response) => response.json())
       .then((data) => (goods=data))*/
   console.log(goods);
+  console.log(loading)
 })
 </script>
 
 <template>
   <header>
     <h1>Cписок товаров</h1>
-    {{ goods }}
+    {{ loading }}
   </header>
   <div>
     <section v-if="errored">
