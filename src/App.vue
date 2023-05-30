@@ -1,23 +1,9 @@
 <script setup>
-import { ref,onMounted} from "vue";
+import { onMounted} from "vue";
 import GoodsItem from "@/components/GoodsItem.vue";
-import axios from "axios";
+import {requestGoods,goods,errored,loading} from "./api";
 
-let goods = ref();
-let errored=ref();
-let loading=ref(true);
-const request='https://fakestoreapi.com/products'
-
-onMounted(async () => {
-    await axios
-        .get(request)
-        .then(response => (goods.value = response.data))
-        .catch(error => {
-          console.log(error);
-          errored.value = true;
-        })
-        .finally(() => (loading.value = false));
-})
+onMounted(requestGoods)
 </script>
 
 <template>
