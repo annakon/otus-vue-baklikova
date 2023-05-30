@@ -6,9 +6,11 @@ import axios from "axios";
 let goods = ref();
 let errored=ref();
 let loading=ref(true);
+const request='https://fakestoreapi.com/products'
+
 onMounted(async () => {
     await axios
-        .get('https://fakestoreapi.com/products')
+        .get(request)
         .then(response => (goods.value = response.data))
         .catch(error => {
           console.log(error);
