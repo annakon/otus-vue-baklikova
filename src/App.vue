@@ -29,9 +29,9 @@ onMounted(async () => {
 
     <section v-else>
       <div v-if="loading">Loading...</div>
-    <GoodsItem v-else v-for="g in goods"
-                :key="g.id"
-                :goods="g">
+    <GoodsItem v-else v-for="item in goods"
+                :key="item.id"
+                :goods="item">
     </GoodsItem>
     </section>
   </div>
