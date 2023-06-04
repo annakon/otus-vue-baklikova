@@ -3,8 +3,18 @@ import { onMounted} from "vue";
 import GoodsItem from "@/components/GoodsItem.vue";
 import {requestGoods,goods,errored,loading} from "./api";
 import SearchForm from "@/components/searchForm.vue";
+import {ref,computed} from "vue";
 
-onMounted(requestGoods)
+onMounted(requestGoods);
+
+const goodsList = computed(goodsToShow)
+const isFind=ref(false)
+function goodsToShow(){return isFind.value?goods.value.filter(t => t?.id===1):goods.value}
+function findCard(){
+  console.log("find");
+  isFind.value=true;
+}
+
 </script>
 
 <template>
@@ -19,7 +29,7 @@ onMounted(requestGoods)
 
     <section v-else>
       <div v-if="loading">Loading...</div>
-    <GoodsItem v-else v-for="item in goods"
+    <GoodsItem v-else v-for="item in goodsList"
                 :key="item.id"
                 :goods="item">
     </GoodsItem>
