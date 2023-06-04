@@ -2,6 +2,7 @@
 import { onMounted} from "vue";
 import GoodsItem from "@/components/GoodsItem.vue";
 import {requestGoods,goods,errored,loading} from "./api";
+import SearchForm from "@/components/searchForm.vue";
 
 onMounted(requestGoods)
 </script>
@@ -9,6 +10,7 @@ onMounted(requestGoods)
 <template>
   <header>
     <h1>Cписок товаров</h1>
+    <search-form></search-form>
   </header>
   <div>
     <section v-if="errored">
