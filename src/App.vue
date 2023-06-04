@@ -10,7 +10,7 @@ onMounted(requestGoods)
 <template>
   <header>
     <h1>Cписок товаров</h1>
-    <search-form></search-form>
+    <search-form @find-card="findCard"></search-form>
   </header>
   <div>
     <section v-if="errored">
