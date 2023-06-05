@@ -25,7 +25,13 @@ function findCard(findObj){
 <template>
   <header>
     <h1>Cписок товаров</h1>
-    <search-form @find-card="findCard"></search-form>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+         <a href="#/find" class="navbar-brand" @click="">Добавить товар</a>
+         <a href="#/find" class="navbar-brand" @click="">Оформить заказ</a>
+        <search-form @find-card="findCard"></search-form>
+      </div>
+    </nav>
   </header>
   <div>
     <section v-if="errored">

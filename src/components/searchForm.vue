@@ -1,17 +1,9 @@
 <template>
-  <form>
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" v-model="nameFind" placeholder="Название">
-      </div>
-      <div class="col">
-        <input type="number" class="form-control" v-model.number="priceFind" placeholder="Цена">
-      </div>
-      <div class="col-auto">
+  <form class="d-flex">
+    <input type="text" class="form-control me-2" v-model="nameFind" placeholder="Название">
+    <input type="number" class="form-control me-2" v-model.number="priceFind" placeholder="Цена">
         <a href="#/find"
            @click="$emit('find-card',{name:nameFind,price:priceFind})">Найти</a>
-      </div>
-    </div>
   </form>
 </template>
 
