@@ -8,7 +8,8 @@
         <input type="text" class="form-control" placeholder="Цена">
       </div>
       <div class="col-auto">
-        <button @click="$emit('find-card')" class="btn btn-primary mb-2">Найти</button>
+        <a href="#/find"
+           @click="$emit('find-card')">Найти</a>
       </div>
     </div>
   </form>
