@@ -9,7 +9,11 @@ onMounted(requestGoods);
 const goodsList = computed(goodsToShow);
 const isFind=ref(false);
 const forSearch=reactive([]);
-function goodsToShow(){return isFind.value?goods.value.filter(t => t?.price===forSearch.value.price):goods.value}
+function goodsToShow(){
+  return isFind.value?
+      goods.value.filter(t => (t?.price===forSearch.value.price || typeof forSearch.value.price=== "undefined")
+          && t?.title.indexOf(forSearch.value.name)!==-1)
+      :goods.value}
 function findCard(findObj){
   console.log("find");
   isFind.value=true;
