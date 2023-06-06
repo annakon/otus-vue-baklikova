@@ -14,7 +14,7 @@
      </textarea>
     </div>
     <div class="col-12">
-      <a href="#/add" @click="$emit('add-card',{name:nameNew,price:priceNew,description:descriptionNew})">Добавить</a>
+      <a href="#/add" @click="addNew">Добавить</a>
     </div>
   </form>
 </template>
@@ -25,6 +25,14 @@ import {ref} from "vue";
 const nameNew=ref("");
 const descriptionNew=ref("");
 const priceNew=ref();
+const emit = defineEmits();
+
+function addNew(event){
+  emit('add-card',{name:nameNew.value,price:priceNew.value,description:descriptionNew.value});
+  nameNew.value="";
+  priceNew.value="";
+  descriptionNew.value="";
+}
 </script>
 
 <style scoped>
