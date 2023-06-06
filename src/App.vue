@@ -3,6 +3,7 @@ import {onMounted, reactive, ref, computed} from "vue";
 import GoodsItem from "@/components/GoodsItem.vue";
 import {requestGoods,goods,errored,loading} from "./api";
 import SearchForm from "@/components/searchForm.vue";
+import NewGoods from "@/components/newGoods.vue";
 
 onMounted(requestGoods);
 
@@ -15,7 +16,6 @@ function goodsToShow(){
           && t?.title.indexOf(forSearch.value.name)!==-1)
       :goods.value}
 function findCard(findObj){
-  console.log("find");
   isFind.value=true;
   forSearch.value=findObj;
 }
@@ -34,6 +34,7 @@ function findCard(findObj){
     </nav>
   </header>
   <div>
+    <newGoods></newGoods>
     <section v-if="errored">
       <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
     </section>
