@@ -10,6 +10,7 @@ onMounted(requestGoods);
 const goodsList = computed(goodsToShow);
 const isFind=ref(false);
 const forSearch=reactive([]);
+const isAdd=ref(false);
 function goodsToShow(){
   return isFind.value?
       goods.value.filter(t => (t?.price===forSearch.value.price || typeof forSearch.value.price=== "undefined")
@@ -20,6 +21,10 @@ function findCard(findObj){
   forSearch.value=findObj;
 }
 
+function addGoods(){
+  isAdd.value=true;
+}
+
 </script>
 
 <template>
@@ -27,14 +32,16 @@ function findCard(findObj){
     <h1>Cписок товаров</h1>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-         <a href="#/find" class="navbar-brand" @click="">Добавить товар</a>
-         <a href="#/find" class="navbar-brand" @click="">Оформить заказ</a>
+         <a href="#/add" class="navbar-brand" @click="addGoods">Добавить товар</a>
+         <a href="#/order" class="navbar-brand" @click="">Оформить заказ</a>
         <search-form @find-card="findCard"></search-form>
       </div>
     </nav>
   </header>
   <div>
-    <newGoods></newGoods>
+    <section v-if="isAdd">
+      <newGoods></newGoods>
+    </section>
     <section v-if="errored">
       <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
     </section>
