@@ -25,6 +25,15 @@ function addGoods(){
   isAdd.value=true;
 }
 
+function addNewCard(addObj){
+  let newObj={"category":"new","image":"/public/favicon.ico","rating":{"rate":0,"count":0}};
+  newObj.id=goods.value.length+1;
+  newObj.title=addObj.name;
+  newObj.price=addObj.price;
+  newObj.description=addObj.description;
+  goods.value.unshift(newObj);
+}
+
 </script>
 
 <template>
@@ -40,7 +49,7 @@ function addGoods(){
   </header>
   <div>
     <section v-if="isAdd">
-      <newGoods></newGoods>
+      <newGoods @add-card="addNewCard"></newGoods>
     </section>
     <section v-if="errored">
       <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
