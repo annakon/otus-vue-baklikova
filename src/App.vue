@@ -4,6 +4,7 @@ import GoodsItem from "@/components/GoodsItem.vue";
 import {requestGoods,goods,errored,loading} from "./api";
 import SearchForm from "@/components/searchForm.vue";
 import NewGoods from "@/components/newGoods.vue";
+import OrderForm from "@/components/orderForm.vue";
 
 onMounted(requestGoods);
 
@@ -49,6 +50,7 @@ function addNewCard(addObj){
     </nav>
   </header>
   <div>
+    <orderForm></orderForm>
     <section v-if="isAdd">
       <newGoods @add-card="addNewCard"></newGoods>
     </section>
