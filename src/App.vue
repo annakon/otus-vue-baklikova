@@ -19,6 +19,7 @@ function goodsToShow(){
 function findCard(findObj){
   isFind.value=true;
   forSearch.value=findObj;
+  isAdd.value=false;
 }
 
 function addGoods(){
