@@ -6,13 +6,7 @@
     </div>
     <div class="col-md-4">
       <label for="email">e-mail</label>
-      <field
-        name="email"
-        type="email"
-        class="form-control"
-        id="email"
-        v-model="email"
-      />
+      <field name="email" type="email" class="form-control" id="email" v-model="email" />
       <ErrorMessage name="email" />
     </div>
     <div class="col-12">
@@ -21,7 +15,13 @@
     </div>
     <div class="col-12 my-1">
       <div class="form-check mb-2 mr-sm-2">
-        <field value="Agree" name="check" class="form-check-input" type="checkbox" id="inlineFormCheck" />
+        <field
+          value="Agree"
+          name="check"
+          class="form-check-input"
+          type="checkbox"
+          id="inlineFormCheck"
+        />
         <label class="form-check-label" for="inlineFormCheck">
           Согласен с правилами обработки заказа
         </label>
@@ -61,7 +61,7 @@ const schema = {
       return 'This field must be a valid email';
     }
     return true;
-  },
+  }
 };
 </script>
 
