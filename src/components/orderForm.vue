@@ -1,5 +1,5 @@
 <template>
-  <Form class="row g-3" @submit="onSubmit">
+  <Form class="row g-3" @submit="onSubmit" :validation-schema="schema">
     <div class="col-md-8">
       <label for="nameGoods">ФИО</label>
       <input type="text" class="form-control" id="nameGoods" v-model="nameNew" />
@@ -12,7 +12,6 @@
         class="form-control"
         id="email"
         v-model="email"
-        :rules="validateEmail"
       />
       <ErrorMessage name="email" />
     </div>
@@ -22,10 +21,11 @@
     </div>
     <div class="col-12 my-1">
       <div class="form-check mb-2 mr-sm-2">
-        <input class="form-check-input" type="checkbox" id="inlineFormCheck" />
+        <field value="Agree" name="check" class="form-check-input" type="checkbox" id="inlineFormCheck" />
         <label class="form-check-label" for="inlineFormCheck">
           Согласен с правилами обработки заказа
         </label>
+        <ErrorMessage name="check" />
       </div>
       <button type="submit" class="btn btn-primary">Оформить</button>
     </div>
@@ -43,16 +43,26 @@ const address = ref('');
 function onSubmit(values) {
   console.log(values);
 }
-function validateEmail(value) {
-  if (!value) {
+
+const schema = {
+  check: (value) => {
+    if (value && value.length) {
+      return true;
+    }
+
     return 'This field is required';
-  }
-  const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-  if (!regex.test(value)) {
-    return 'This field must be a valid email';
-  }
-  return true;
-}
+  },
+  email: (value) => {
+    if (!value) {
+      return 'This field is required';
+    }
+    const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    if (!regex.test(value)) {
+      return 'This field must be a valid email';
+    }
+    return true;
+  },
+};
 </script>
 
 <style scoped>
@@ -61,5 +71,11 @@ function validateEmail(value) {
 }
 form {
   margin: 1rem;
+}
+span {
+  display: block;
+  font-size: 80%;
+  margin-top: 0.25rem;
+  color: #dc3545;
 }
 </style>
