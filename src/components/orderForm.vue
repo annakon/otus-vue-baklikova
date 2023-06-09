@@ -2,7 +2,7 @@
   <Form class="row g-3" @submit="onSubmit" :validation-schema="schema">
     <div class="col-md-8">
       <label for="nameGoods">ФИО</label>
-      <input type="text" class="form-control" id="nameGoods" v-model="nameNew" />
+      <field name="FIO" type="text" class="form-control" id="nameGoods" v-model="nameNew" />
     </div>
     <div class="col-md-4">
       <label for="email">e-mail</label>
@@ -11,7 +11,7 @@
     </div>
     <div class="col-12">
       <label for="address">Aдрес</label>
-      <input type="text" class="form-control" id="address" v-model="address" />
+      <field name="address" type="text" class="form-control" id="address" v-model="address" />
     </div>
     <div class="col-12 my-1">
       <div class="form-check mb-2 mr-sm-2">
@@ -35,6 +35,7 @@
 <script setup>
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
+import { message, saveOrder } from '@/api';
 
 const nameNew = ref('');
 const email = ref('');
@@ -42,6 +43,7 @@ const address = ref('');
 
 function onSubmit(values) {
   console.log(values);
+  saveOrder(values);
 }
 
 const schema = {

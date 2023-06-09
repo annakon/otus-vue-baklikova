@@ -12,7 +12,7 @@ const goodsList = computed(goodsToShow);
 const isFind = ref(false);
 const forSearch = reactive([]);
 const isAdd = ref(false);
-const isOrder= ref(false);
+const isOrder = ref(false);
 function goodsToShow() {
   return isFind.value
     ? goods.value.filter(
@@ -23,14 +23,14 @@ function goodsToShow() {
     : goods.value;
 }
 
-function setVisible(find,add,order){
+function setVisible(find, add, order) {
   isAdd.value = add;
   isFind.value = find;
-  isOrder.value=order;
+  isOrder.value = order;
 }
 function findCard(findObj) {
   forSearch.value = findObj;
-  setVisible(true,false,false);
+  setVisible(true, false, false);
 }
 
 function addNewCard(addObj) {
@@ -48,9 +48,15 @@ function addNewCard(addObj) {
     <h1>Cписок товаров</h1>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a href="#/add" class="navbar-brand" @click="() => setVisible(false,true,false)">Добавить товар</a>
-        <a href="#/order" class="navbar-brand" @click="() => setVisible(false,false,true)">Оформить заказ</a>
-        <a href="#/main" class="navbar-brand" @click="() => setVisible(false,false,false)">Просмотр списка</a>
+        <a href="#/add" class="navbar-brand" @click="() => setVisible(false, true, false)"
+          >Добавить товар</a
+        >
+        <a href="#/order" class="navbar-brand" @click="() => setVisible(false, false, true)"
+          >Оформить заказ</a
+        >
+        <a href="#/main" class="navbar-brand" @click="() => setVisible(false, false, false)"
+          >Просмотр списка</a
+        >
         <search-form @find-card="findCard"></search-form>
       </div>
     </nav>
