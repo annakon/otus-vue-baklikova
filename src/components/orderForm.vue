@@ -35,7 +35,7 @@
 <script setup>
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import { message, saveOrder } from '@/api';
+import { saveOrder } from '@/api';
 
 const nameNew = ref('');
 const email = ref('');

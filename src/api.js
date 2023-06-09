@@ -18,8 +18,8 @@ export async function requestGoods() {
     .finally(() => (loading.value = false));
 }
 
-export const saveOrder = (orderData) => {
-  fetch('https://reqbin.com/echo/post/json', {
+export async function saveOrder(orderData) {
+  await fetch('https://reqbin.com/echo/post/json', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -29,8 +29,8 @@ export const saveOrder = (orderData) => {
   })
     .then((response) => response.json())
     .then((response) => console.log(JSON.stringify(response)))
-    .then(() => (message.value = 'запрос успешно отправлен'))
+    .then(() => alert('Ваш заказ оформлен'))
     .catch((error) => {
-      message.value = error;
+      alert(error);
     });
-};
+}
