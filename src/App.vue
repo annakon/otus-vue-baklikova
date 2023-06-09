@@ -22,23 +22,15 @@ function goodsToShow() {
       )
     : goods.value;
 }
+
+function setVisible(find,add,order){
+  isAdd.value = add;
+  isFind.value = find;
+  isOrder.value=order;
+}
 function findCard(findObj) {
-  isFind.value = true;
   forSearch.value = findObj;
-  isAdd.value = false;
-  isOrder.value=false;
-}
-
-function addGoods() {
-  isAdd.value = true;
-  isFind.value = false;
-  isOrder.value=false;
-}
-
-function addOrder() {
-  isAdd.value = false;
-  isOrder.value=true;
-  isFind.value = false;
+  setVisible(true,false,false);
 }
 
 function addNewCard(addObj) {
@@ -56,8 +48,9 @@ function addNewCard(addObj) {
     <h1>Cписок товаров</h1>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a href="#/add" class="navbar-brand" @click="addGoods">Добавить товар</a>
-        <a href="#/order" class="navbar-brand" @click="addOrder">Оформить заказ</a>
+        <a href="#/add" class="navbar-brand" @click="() => setVisible(false,true,false)">Добавить товар</a>
+        <a href="#/order" class="navbar-brand" @click="() => setVisible(false,false,true)">Оформить заказ</a>
+        <a href="#/main" class="navbar-brand" @click="() => setVisible(false,false,false)">Просмотр списка</a>
         <search-form @find-card="findCard"></search-form>
       </div>
     </nav>
