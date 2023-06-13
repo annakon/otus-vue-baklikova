@@ -21,7 +21,7 @@
       <textarea class="form-control" rows="3" id="description" v-model="descriptionNew"> </textarea>
     </div>
     <div class="col-12">
-      <a href="#/add" @click="addNew">Добавить</a>
+      <button @click="addNew" class="btn btn-primary">Добавить</button>
     </div>
   </Form>
 </template>
