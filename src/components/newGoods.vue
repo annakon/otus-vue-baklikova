@@ -1,12 +1,20 @@
 <template>
-  <form class="row g-3">
+  <Form class="row g-3">
     <div class="col-md-6">
       <label for="nameGoods">Название товара</label>
       <input type="text" class="form-control" id="nameGoods" v-model="nameNew" />
     </div>
     <div class="col-md-3">
       <label for="priceGoods">Цена</label>
-      <input type="number" class="form-control" id="priceGoods" v-model.number="priceNew" />
+      <field
+        name="price"
+        type="number"
+        class="form-control"
+        id="priceGoods"
+        v-model.number="priceNew"
+        :rules="priceRules"
+      />
+      <ErrorMessage name="price" />
     </div>
     <div class="col-12">
       <label for="description" class="form-label">Описание</label>
@@ -15,16 +23,19 @@
     <div class="col-12">
       <a href="#/add" @click="addNew">Добавить</a>
     </div>
-  </form>
+  </Form>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { Form, Field, ErrorMessage } from 'vee-validate';
+import * as yup from 'yup';
 
 const nameNew = ref('');
 const descriptionNew = ref('');
 const priceNew = ref();
 const emit = defineEmits();
+const priceRules = yup.number().required().positive();
 
 function addNew(event) {
   emit('add-card', {
@@ -44,5 +55,11 @@ function addNew(event) {
 }
 form {
   margin: 1rem;
+}
+span {
+  display: block;
+  font-size: 80%;
+  margin-top: 0.25rem;
+  color: #dc3545;
 }
 </style>
