@@ -62,4 +62,7 @@ span {
   margin-top: 0.25rem;
   color: #dc3545;
 }
+button {
+  margin-top: 0.5rem;
+}
 </style>
