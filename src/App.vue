@@ -1,27 +1,15 @@
 <script setup>
-import { onMounted, reactive, ref, computed } from 'vue';
-import GoodsItem from '@/components/GoodsItem.vue';
-import { requestGoods, goods, errored, loading } from './api';
+import {reactive, ref} from 'vue';
+import { goods } from './api';
 import SearchForm from '@/components/searchForm.vue';
 import NewGoods from '@/components/newGoods.vue';
 import OrderForm from '@/components/orderForm.vue';
+import Display from "@/components/display.vue";
 
-onMounted(requestGoods);
-
-const goodsList = computed(goodsToShow);
-const isFind = ref(false);
-const forSearch = reactive([]);
 const isAdd = ref(false);
 const isOrder = ref(false);
-function goodsToShow() {
-  return isFind.value
-    ? goods.value.filter(
-        (t) =>
-          (t?.price === forSearch.value.price || typeof forSearch.value.price === 'undefined') &&
-          t?.title.indexOf(forSearch.value.name) !== -1
-      )
-    : goods.value;
-}
+const isFind = ref(false);
+const forSearch = reactive([]);
 
 function setVisible(find, add, order) {
   isAdd.value = add;
@@ -69,17 +57,7 @@ function addNewCard(addObj) {
       <section v-if="isAdd">
         <newGoods @add-card="addNewCard"></newGoods>
       </section>
-      <section v-if="errored">
-        <p>
-          We're sorry, we're not able to retrieve this information at the moment, please try back
-          later
-        </p>
-      </section>
-
-      <section v-else>
-        <div v-if="loading">Loading...</div>
-        <GoodsItem v-else v-for="item in goodsList" :key="item.id" :goods="item"> </GoodsItem>
-      </section>
+      <display :is-find="isFind" :for-search="forSearch"></display>
     </section>
   </div>
 </template>
