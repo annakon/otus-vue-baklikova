@@ -1,10 +1,12 @@
 <script setup>
-import {reactive, ref} from 'vue';
-import { goods } from './api';
+import {onMounted, reactive, ref} from 'vue';
+import {goods, requestGoods} from './api';
 import SearchForm from '@/components/searchForm.vue';
 import NewGoods from '@/components/newGoods.vue';
 import OrderForm from '@/components/orderForm.vue';
 import Display from "@/components/display.vue";
+
+onMounted(requestGoods);
 
 const isAdd = ref(false);
 const isOrder = ref(false);

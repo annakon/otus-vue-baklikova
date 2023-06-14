@@ -13,13 +13,12 @@
 </template>
 
 <script setup>
-import {computed, onMounted} from "vue";
-import {requestGoods,goods, errored, loading} from "@/api";
+import {computed} from "vue";
+import {goods, errored, loading} from "@/api";
 import GoodsItem from '@/components/GoodsItem.vue';
 
 const props = defineProps(['isFind','forSearch']);
 
-onMounted(requestGoods);
 const goodsList = computed(goodsToShow);
 function goodsToShow() {
   return props.isFind.value
