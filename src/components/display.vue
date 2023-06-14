@@ -8,27 +8,15 @@
 
   <section v-else>
     <div v-if="loading">Loading...</div>
-    <GoodsItem v-else v-for="item in goodsList" :key="item.id" :goods="item"> </GoodsItem>
+    <GoodsItem v-else v-for="item in props.goodsList" :key="item.id" :goods="item"> </GoodsItem>
   </section>
 </template>
 
 <script setup>
-import {computed} from "vue";
-import {goods, errored, loading} from "@/api";
+import { errored, loading} from "@/api";
 import GoodsItem from '@/components/GoodsItem.vue';
 
-const props = defineProps(['isFind','forSearch']);
-
-const goodsList = computed(goodsToShow);
-function goodsToShow() {
-  return props.isFind.value
-      ? goods.value.filter(
-          (t) =>
-              (t?.price === props.forSearch.value.price || typeof props.forSearch.value.price === 'undefined') &&
-              t?.title.indexOf(props.forSearch.value.name) !== -1
-      )
-      : goods.value;
-}
+const props = defineProps(['goodsList']);
 
 </script>
 

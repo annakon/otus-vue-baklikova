@@ -1,5 +1,5 @@
 <script setup>
-import {onMounted, reactive, ref} from 'vue';
+import {computed, onMounted, reactive, ref} from 'vue';
 import {goods, requestGoods} from './api';
 import SearchForm from '@/components/searchForm.vue';
 import NewGoods from '@/components/newGoods.vue';
@@ -12,6 +12,16 @@ const isAdd = ref(false);
 const isOrder = ref(false);
 const isFind = ref(false);
 const forSearch = reactive([]);
+const goodsList = computed(goodsToShow);
+function goodsToShow() {
+  return isFind.value
+      ? goods.value.filter(
+          (t) =>
+              (t?.price === forSearch.value.price || typeof forSearch.value.price === 'undefined') &&
+              t?.title.indexOf(forSearch.value.name) !== -1
+      )
+      : goods.value;
+}
 
 function setVisible(find, add, order) {
   isAdd.value = add;
@@ -59,7 +69,7 @@ function addNewCard(addObj) {
       <section v-if="isAdd">
         <newGoods @add-card="addNewCard"></newGoods>
       </section>
-      <display :is-find="isFind" :for-search="forSearch"></display>
+      <display :goods-list="goodsList"></display>
     </section>
   </div>
 </template>
