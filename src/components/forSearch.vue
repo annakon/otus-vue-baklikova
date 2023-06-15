@@ -12,9 +12,9 @@ const props = defineProps(['name', 'price']);
 const goodsList = computed(goodsToShow);
 function goodsToShow() {
   return goods.value.filter(
-    (t) =>
-      (t?.price === props.price || typeof props.price === 'undefined') &&
-      t?.title.indexOf(props.name) !== -1
+      (t) =>
+          (t?.price === Number(props.price) || props.price === '') &&
+          t?.title.indexOf(props.name) !== -1
   );
 }
 </script>
