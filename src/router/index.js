@@ -17,6 +17,11 @@ const router = createRouter({
       path: '/',
       name: 'main',
       component: () => import('../components/display.vue')
+    },
+    {
+      path: '/fff',
+      name: 'fff',
+      component: () => import('../components/forSearch.vue')
     }
   ],
   scrollBehavior() {
