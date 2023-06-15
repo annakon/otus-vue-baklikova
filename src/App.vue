@@ -1,6 +1,6 @@
 <script setup>
 import { computed, reactive, ref } from 'vue';
-import { goods, } from './api';
+import { goods } from './api';
 import SearchForm from '@/components/searchForm.vue';
 
 const isAdd = ref(false);
@@ -26,15 +26,6 @@ function setVisible(find, add, order) {
 function findCard(findObj) {
   forSearch.value = findObj;
   setVisible(true, false, false);
-}
-
-function addNewCard(addObj) {
-  let newObj = { category: 'new', image: '/public/favicon.ico', rating: { rate: 0, count: 0 } };
-  newObj.id = goods.value.length + 1;
-  newObj.title = addObj.name;
-  newObj.price = addObj.price;
-  newObj.description = addObj.description;
-  goods.value.unshift(newObj);
 }
 </script>
 

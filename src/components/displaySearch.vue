@@ -1,5 +1,11 @@
-<template></template>
+<template>
+  <GoodsItem v-for="item in props.goodsList" :key="item.id" :goods="item"> </GoodsItem>
+</template>
 
-<script setup></script>
+<script setup>
+import GoodsItem from '@/components/GoodsItem.vue';
+
+const props = defineProps(['goodsList']);
+</script>
 
 <style scoped></style>

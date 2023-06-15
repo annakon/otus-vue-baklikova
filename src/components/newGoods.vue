@@ -24,28 +24,31 @@
       <button @click="addNew" class="btn btn-primary">Добавить</button>
     </div>
   </Form>
+  <display-search :goods-list="goods"></display-search>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
+import { goods } from '@/api';
+import DisplaySearch from '@/components/displaySearch.vue';
 
 const nameNew = ref('');
 const descriptionNew = ref('');
 const priceNew = ref();
-const emit = defineEmits();
 const priceRules = yup.number().required().positive();
 
 function addNew(event) {
-  emit('add-card', {
-    name: nameNew.value,
-    price: priceNew.value,
-    description: descriptionNew.value
-  });
+  let newObj = { category: 'new', image: '/public/favicon.ico', rating: { rate: 0, count: 0 } };
+  newObj.id = goods.value.length + 1;
+  newObj.title = nameNew.value;
+  newObj.price = priceNew.value;
+  newObj.description = descriptionNew.value;
   nameNew.value = '';
   priceNew.value = '';
   descriptionNew.value = '';
+  goods.value.unshift(newObj);
 }
 </script>
 
