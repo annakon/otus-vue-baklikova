@@ -19,8 +19,9 @@ const router = createRouter({
       component: () => import('../components/display.vue')
     },
     {
-      path: '/fff',
+      path: '/fff/:name?/:price?',
       name: 'fff',
+      props: true,
       component: () => import('../components/forSearch.vue')
     }
   ],
