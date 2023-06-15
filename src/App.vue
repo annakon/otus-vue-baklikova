@@ -1,12 +1,7 @@
 <script setup>
-import {computed, onMounted, reactive, ref} from 'vue';
-import {goods, requestGoods} from './api';
+import { computed, reactive, ref } from 'vue';
+import { goods, } from './api';
 import SearchForm from '@/components/searchForm.vue';
-import NewGoods from '@/components/newGoods.vue';
-import OrderForm from '@/components/orderForm.vue';
-import Display from "@/components/display.vue";
-
-onMounted(requestGoods);
 
 const isAdd = ref(false);
 const isOrder = ref(false);
@@ -15,12 +10,12 @@ const forSearch = reactive([]);
 const goodsList = computed(goodsToShow);
 function goodsToShow() {
   return isFind.value
-      ? goods.value.filter(
-          (t) =>
-              (t?.price === forSearch.value.price || typeof forSearch.value.price === 'undefined') &&
-              t?.title.indexOf(forSearch.value.name) !== -1
+    ? goods.value.filter(
+        (t) =>
+          (t?.price === forSearch.value.price || typeof forSearch.value.price === 'undefined') &&
+          t?.title.indexOf(forSearch.value.name) !== -1
       )
-      : goods.value;
+    : goods.value;
 }
 
 function setVisible(find, add, order) {
@@ -48,30 +43,14 @@ function addNewCard(addObj) {
     <h1>Cписок товаров</h1>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a href="#/add" class="navbar-brand" @click="() => setVisible(false, true, false)"
-          >Добавить товар</a
-        >
-        <a href="#/order" class="navbar-brand" @click="() => setVisible(false, false, true)"
-          >Оформить заказ</a
-        >
-        <a href="#/main" class="navbar-brand" @click="() => setVisible(false, false, false)"
-          >Просмотр списка</a
-        >
+        <router-link to="/add" class="navbar-brand">Добавить товар</router-link>
+        <router-link to="/order" class="navbar-brand">Оформить заказ</router-link>
+        <router-link to="/" class="navbar-brand">Просмотр списка</router-link>
         <search-form @find-card="findCard"></search-form>
       </div>
     </nav>
   </header>
-  <div>
-    <section v-if="isOrder">
-      <orderForm></orderForm>
-    </section>
-    <section v-else>
-      <section v-if="isAdd">
-        <newGoods @add-card="addNewCard"></newGoods>
-      </section>
-      <display :goods-list="goodsList"></display>
-    </section>
-  </div>
+  <router-view />
 </template>
 
 <style scoped>
