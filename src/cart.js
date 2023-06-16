@@ -7,8 +7,10 @@ export function addToCart(product) {
 
   if (item) {
     item.quantity++;
+    alert("В корзине: " + item.quantity);
   } else {
     cart.value.push({ ...product, quantity: 1 });
+    alert("В корзине: 1")
   }
 }
 
