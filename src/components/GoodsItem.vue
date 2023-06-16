@@ -14,10 +14,25 @@
       <p class="card-text text-muted">
         rate: {{ props.goods.rating.rate }} count: {{ props.goods.rating.count }}
       </p>
-      <router-link :to="{ name: 'product', params: { id: props.goods.id } }" class="btn btn-primary"
-        >Подробнее</router-link
-      >
-      <router-link to="#" class="btn btn-primary">В корзину</router-link>
+      <section v-if="props.goods.buttonDisabled">
+        <router-link
+          :to="{ name: 'product', params: { id: props.goods.id } }"
+          class="btn btn-primary disabled"
+          aria-disabled="true"
+          >Подробнее</router-link
+        >
+        <router-link to="#" class="btn btn-primary disabled" aria-disabled="true"
+          >В корзину</router-link
+        >
+      </section>
+      <section v-else>
+        <router-link
+          :to="{ name: 'product', params: { id: props.goods.id } }"
+          class="btn btn-primary"
+          >Подробнее</router-link
+        >
+        <router-link to="#" class="btn btn-primary">В корзину</router-link>
+      </section>
     </div>
   </div>
 </template>

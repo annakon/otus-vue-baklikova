@@ -40,7 +40,12 @@ const priceNew = ref();
 const priceRules = yup.number().required().positive();
 
 function addNew(event) {
-  let newObj = { category: 'new', image: '/public/favicon.ico', rating: { rate: 0, count: 0 } };
+  let newObj = {
+    category: 'new',
+    image: '/public/favicon.ico',
+    rating: { rate: 0, count: 0 },
+    buttonDisabled: true
+  };
   newObj.id = goods.value.length + 1;
   newObj.title = nameNew.value;
   newObj.price = priceNew.value;

@@ -16,21 +16,21 @@
         <div class="col-sm col-right">
           <table class="table">
             <tbody>
-            <tr>
-              <th scope="row">цена</th>
-              <td>{{ product.price }}</td>
-            </tr>
-            <tr>
-              <th scope="row">рейтинг</th>
-              <td>{{product.rating.rate}}</td>
-            </tr>
-            <tr>
-              <th scope="row">количество</th>
-              <td>{{product.rating.count}}</td>
-            </tr>
+              <tr>
+                <th scope="row">цена</th>
+                <td>{{ product.price }}</td>
+              </tr>
+              <tr>
+                <th scope="row">рейтинг</th>
+                <td>{{ product.rating.rate }}</td>
+              </tr>
+              <tr>
+                <th scope="row">количество</th>
+                <td>{{ product.rating.count }}</td>
+              </tr>
             </tbody>
           </table>
-          <div class="descr">{{product.description}}</div>
+          <div class="descr">{{ product.description }}</div>
         </div>
       </div>
     </div>
@@ -49,18 +49,18 @@ onMounted(requestProd);
 </script>
 
 <style scoped>
- .descr {
-   margin-top: 1rem;
-   margin-left: 1rem;
- }
- .col-right {
-   margin-right: 4rem;
- }
- img {
-   max-width: 70%;
-   margin-left: 4rem;
- }
- h1 {
-   margin: 2rem;
- }
+.descr {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.col-right {
+  margin-right: 4rem;
+}
+img {
+  max-width: 70%;
+  margin-left: 4rem;
+}
+h1 {
+  margin: 2rem;
+}
 </style>
