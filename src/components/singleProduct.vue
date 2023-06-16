@@ -13,7 +13,7 @@
         <div class="col-sm">
           <img class="img-thumbnail" :src="product.image" alt="Card image" />
         </div>
-        <div class="col-sm">
+        <div class="col-sm col-right">
           <table class="table">
             <tbody>
             <tr>
@@ -52,5 +52,15 @@ onMounted(requestProd);
  .descr {
    margin-top: 1rem;
    margin-left: 1rem;
+ }
+ .col-right {
+   margin-right: 4rem;
+ }
+ img {
+   max-width: 70%;
+   margin-left: 4rem;
+ }
+ h1 {
+   margin: 2rem;
  }
 </style>
