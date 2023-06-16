@@ -5,7 +5,7 @@ export let goods = ref();
 export let errored = ref();
 export let loading = ref(true);
 const request = 'https://fakestoreapi.com/products';
-export let message = ref('');
+export let product = ref();
 
 export async function requestGoods() {
   await axios
@@ -16,6 +16,17 @@ export async function requestGoods() {
       errored.value = true;
     })
     .finally(() => (loading.value = false));
+}
+
+export async function requestProduct(requestOneProduct) {
+    await axios
+        .get(requestOneProduct)
+        .then((response) => (product.value = response.data))
+        .catch((error) => {
+            console.log(error);
+            errored.value = true;
+        })
+        .finally(() => (loading.value = false));
 }
 
 export async function saveOrder(orderData) {
