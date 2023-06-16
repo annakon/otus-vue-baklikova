@@ -11,3 +11,7 @@ export function addToCart(product) {
     cart.value.push({ ...product, quantity: 1 });
   }
 }
+
+export function clearCart() {
+  cart.value=[];
+}
