@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card text-center">
     <img class="card-img-top" :src="props.goods.image" alt="Card image" />
     <div class="cardBody">
       <h5 class="card-title">
@@ -14,6 +14,8 @@
       <p class="card-text text-muted">
         rate: {{ props.goods.rating.rate }} count: {{ props.goods.rating.count }}
       </p>
+      <router-link to="#" class="btn btn-primary">Подробнее</router-link>
+      <router-link to="#" class="btn btn-primary">В корзину</router-link>
     </div>
   </div>
 </template>
