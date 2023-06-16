@@ -14,7 +14,9 @@
       <p class="card-text text-muted">
         rate: {{ props.goods.rating.rate }} count: {{ props.goods.rating.count }}
       </p>
-      <router-link to="#" class="btn btn-primary">Подробнее</router-link>
+      <router-link :to="{ name: 'product', params: { id: props.goods.id } }" class="btn btn-primary"
+        >Подробнее</router-link
+      >
       <router-link to="#" class="btn btn-primary">В корзину</router-link>
     </div>
   </div>

@@ -23,6 +23,12 @@ const router = createRouter({
       name: 'fff',
       props: true,
       component: () => import('../components/forSearch.vue')
+    },
+    {
+      path: '/product/:id',
+      name: 'product',
+      props: true,
+      component: () => import('../components/singleProduct.vue')
     }
   ],
   scrollBehavior() {
