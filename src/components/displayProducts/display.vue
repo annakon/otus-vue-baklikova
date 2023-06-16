@@ -13,7 +13,7 @@
 
 <script setup>
 import { errored, loading, requestGoods, goods } from '@/api';
-import DisplaySearch from '@/components/displaySearch.vue';
+import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
 import { onMounted } from 'vue';
 
 onMounted(requestGoods);

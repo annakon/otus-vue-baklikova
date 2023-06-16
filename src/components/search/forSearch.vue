@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import DisplaySearch from '@/components/displaySearch.vue';
+import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
 import { goods } from '@/api';
 import { computed } from 'vue';
 

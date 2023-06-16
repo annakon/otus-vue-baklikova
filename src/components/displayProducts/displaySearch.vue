@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import GoodsItem from '@/components/GoodsItem.vue';
+import GoodsItem from '@/components/displayProducts/GoodsItem.vue';
 
 const props = defineProps(['goodsList']);
 </script>

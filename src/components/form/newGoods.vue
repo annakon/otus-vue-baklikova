@@ -32,7 +32,7 @@ import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { goods } from '@/api';
-import DisplaySearch from '@/components/displaySearch.vue';
+import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
 
 const nameNew = ref('');
 const descriptionNew = ref('');

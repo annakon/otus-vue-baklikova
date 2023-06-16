@@ -1,9 +1,11 @@
 <script setup>
-import SearchForm from '@/components/searchForm.vue';
+import SearchForm from '@/components/search/searchForm.vue';
+import Login from "@/components/login/login.vue";
 </script>
 
 <template>
   <header>
+    <Login></Login>
     <h1>Cписок товаров</h1>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">

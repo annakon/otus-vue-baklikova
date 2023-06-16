@@ -5,7 +5,7 @@
 
 <script setup>
 import { cart, clearCart} from '@/cart';
-import GoodsItemCart from '@/components/GoodsItemCart.vue';
+import GoodsItemCart from '@/components/cart/GoodsItemCart.vue';
 </script>
 
 <style scoped>

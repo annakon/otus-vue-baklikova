@@ -6,34 +6,34 @@ const router = createRouter({
     {
       path: '/add',
       name: 'add',
-      component: () => import('../components/newGoods.vue')
+      component: () => import('../components/form/newGoods.vue')
     },
     {
       path: '/order',
       name: 'order',
-      component: () => import('../components/orderForm.vue')
+      component: () => import('../components/form/orderForm.vue')
     },
     {
       path: '/',
       name: 'main',
-      component: () => import('../components/display.vue')
+      component: () => import('../components/displayProducts/display.vue')
     },
     {
       path: '/fff/:name?/:price?',
       name: 'fff',
       props: true,
-      component: () => import('../components/forSearch.vue')
+      component: () => import('../components/search/forSearch.vue')
     },
     {
       path: '/product/:id',
       name: 'product',
       props: true,
-      component: () => import('../components/singleProduct.vue')
+      component: () => import('../components/displayProducts/singleProduct.vue')
     },
     {
       path: '/cart',
       name: 'cart',
-      component: () => import('../components/cart.vue')
+      component: () => import('../components/cart/cart.vue')
     }
   ],
   scrollBehavior() {
