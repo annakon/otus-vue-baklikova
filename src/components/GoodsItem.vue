@@ -15,10 +15,7 @@
         rate: {{ props.goods.rating.rate }} count: {{ props.goods.rating.count }}
       </p>
       <section v-if="props.goods.buttonDisabled">
-        <router-link
-          to="#"
-          class="btn btn-primary disabled"
-          aria-disabled="true"
+        <router-link to="#" class="btn btn-primary disabled" aria-disabled="true"
           >Подробнее</router-link
         >
         <button class="btn btn-primary" type="button" disabled>В корзину</button>
@@ -29,7 +26,17 @@
           class="btn btn-primary"
           >Подробнее</router-link
         >
-        <button class="btn btn-primary" type="button">В корзину</button>
+        <button
+          @click="
+            () => {
+              addToCart(props.goods);
+            }
+          "
+          class="btn btn-primary"
+          type="button"
+        >
+          В корзину
+        </button>
       </section>
     </div>
   </div>
@@ -37,6 +44,7 @@
 
 <script setup>
 const props = defineProps(['goods']);
+import { addToCart } from '@/cart';
 </script>
 
 <style scoped>

@@ -29,6 +29,11 @@ const router = createRouter({
       name: 'product',
       props: true,
       component: () => import('../components/singleProduct.vue')
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('../components/cart.vue')
     }
   ],
   scrollBehavior() {

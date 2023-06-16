@@ -10,6 +10,7 @@ import SearchForm from '@/components/searchForm.vue';
         <router-link to="/add" class="navbar-brand">Добавить товар</router-link>
         <router-link to="/order" class="navbar-brand">Оформить заказ</router-link>
         <router-link to="/" class="navbar-brand">Просмотр списка</router-link>
+        <router-link to="/cart" class="navbar-brand">Корзина</router-link>
         <search-form></search-form>
       </div>
     </nav>
