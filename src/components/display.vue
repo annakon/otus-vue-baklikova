@@ -7,13 +7,13 @@
 
   <section v-else>
     <div v-if="loading">Loading...</div>
-    <GoodsItem v-else v-for="item in goods" :key="item.id" :goods="item"> </GoodsItem>
+    <display-search :goods-list="goods"></display-search>
   </section>
 </template>
 
 <script setup>
 import { errored, loading, requestGoods, goods } from '@/api';
-import GoodsItem from '@/components/GoodsItem.vue';
+import DisplaySearch from '@/components/displaySearch.vue';
 import { onMounted } from 'vue';
 
 onMounted(requestGoods);
