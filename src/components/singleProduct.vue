@@ -8,7 +8,31 @@
   <section v-else>
     <div v-if="loading">Loading...</div>
     <div v-else class="container">
-      <img class="card-img-top" :src="product.image" alt="Card image" />
+      <h1>{{ product.title }}</h1>
+      <div class="row">
+        <div class="col-sm">
+          <img class="img-thumbnail" :src="product.image" alt="Card image" />
+        </div>
+        <div class="col-sm">
+          <table class="table">
+            <tbody>
+            <tr>
+              <th scope="row">цена</th>
+              <td>{{ product.price }}</td>
+            </tr>
+            <tr>
+              <th scope="row">рейтинг</th>
+              <td>{{product.rating.rate}}</td>
+            </tr>
+            <tr>
+              <th scope="row">количество</th>
+              <td>{{product.rating.count}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="descr">{{product.description}}</div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -18,10 +42,15 @@ const props = defineProps(['id']);
 import { errored, loading, requestProduct, product } from '@/api';
 import { onMounted } from 'vue';
 
-const requestProd=()=>{
-  requestProduct("https://fakestoreapi.com/products/"+props.id);
-}
+const requestProd = () => {
+  requestProduct('https://fakestoreapi.com/products/' + props.id);
+};
 onMounted(requestProd);
 </script>
 
-<style scoped></style>
+<style scoped>
+ .descr {
+   margin-top: 1rem;
+   margin-left: 1rem;
+ }
+</style>

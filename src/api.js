@@ -19,14 +19,14 @@ export async function requestGoods() {
 }
 
 export async function requestProduct(requestOneProduct) {
-    await axios
-        .get(requestOneProduct)
-        .then((response) => (product.value = response.data))
-        .catch((error) => {
-            console.log(error);
-            errored.value = true;
-        })
-        .finally(() => (loading.value = false));
+  await axios
+    .get(requestOneProduct)
+    .then((response) => (product.value = response.data))
+    .catch((error) => {
+      console.log(error);
+      errored.value = true;
+    })
+    .finally(() => (loading.value = false));
 }
 
 export async function saveOrder(orderData) {
