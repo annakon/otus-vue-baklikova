@@ -16,14 +16,12 @@
       </p>
       <section v-if="props.goods.buttonDisabled">
         <router-link
-          :to="{ name: 'product', params: { id: props.goods.id } }"
+          to="#"
           class="btn btn-primary disabled"
           aria-disabled="true"
           >Подробнее</router-link
         >
-        <router-link to="#" class="btn btn-primary disabled" aria-disabled="true"
-          >В корзину</router-link
-        >
+        <button class="btn btn-primary" type="button" disabled>В корзину</button>
       </section>
       <section v-else>
         <router-link
@@ -31,7 +29,7 @@
           class="btn btn-primary"
           >Подробнее</router-link
         >
-        <router-link to="#" class="btn btn-primary">В корзину</router-link>
+        <button class="btn btn-primary" type="button">В корзину</button>
       </section>
     </div>
   </div>
