@@ -40,12 +40,9 @@
 <script setup>
 const props = defineProps(['id']);
 import { errored, loading, requestProduct, product } from '@/api';
-import { onMounted } from 'vue';
 
-const requestProd = () => {
-  requestProduct('https://fakestoreapi.com/products/' + props.id);
-};
-onMounted(requestProd);
+requestProduct('https://fakestoreapi.com/products/' + props.id);
+
 </script>
 
 <style scoped>
