@@ -4,7 +4,7 @@ import Login from '@/components/login/login.vue';
 </script>
 
 <template>
-  <div v-if="$route.name !== 'login' & $route.name !== 'order'">
+  <div v-if="($route.name !== 'login') & ($route.name !== 'order')">
     <header>
       <Login></Login>
       <h1>Cписок товаров</h1>
