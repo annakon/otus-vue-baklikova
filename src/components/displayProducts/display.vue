@@ -12,9 +12,11 @@
 </template>
 
 <script setup>
-import { errored, loading, requestGoods, goods } from '@/api';
+import {useApi} from '@/api';
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
 import { onMounted } from 'vue';
+
+const { errored, loading, requestGoods, goods } = useApi();
 
 onMounted(requestGoods);
 </script>

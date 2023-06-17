@@ -36,11 +36,12 @@
 <script setup>
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import { saveOrder } from '@/api';
+import { useApi } from '@/api';
 
 const nameNew = ref('');
 const email = ref('');
 const address = ref('');
+const {saveOrder} = useApi();
 
 function onSubmit(values) {
   console.log(values);

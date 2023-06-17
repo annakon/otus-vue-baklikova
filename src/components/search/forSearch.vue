@@ -4,10 +4,13 @@
 
 <script setup>
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
-import { goods } from '@/api';
+import { useApi } from '@/api';
 import { computed } from 'vue';
 
 const props = defineProps(['name', 'price']);
+const {goods} = useApi();
+
+console.log(goods);
 
 const goodsList = computed(goodsToShow);
 function goodsToShow() {

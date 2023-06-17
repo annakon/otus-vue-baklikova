@@ -31,13 +31,14 @@
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
-import { goods } from '@/api';
+import { useApi } from '@/api';
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
 
 const nameNew = ref('');
 const descriptionNew = ref('');
 const priceNew = ref();
 const priceRules = yup.number().required().positive();
+const {goods} = useApi();
 
 function addNew(event) {
   let newObj = {
