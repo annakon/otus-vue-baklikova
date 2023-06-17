@@ -1,5 +1,6 @@
 <template>
   <Form class="row g-3" @submit="onSubmit" :validation-schema="schema">
+    <h1>Оформление заказа</h1>
     <div class="col-md-8">
       <label for="nameGoods">ФИО</label>
       <field name="FIO" type="text" class="form-control" id="nameGoods" v-model="nameNew" />
@@ -72,12 +73,16 @@ const schema = {
   margin: 0;
 }
 form {
-  margin: 1rem;
+  margin: 10rem;
 }
 span {
   display: block;
   font-size: 80%;
   margin-top: 0.25rem;
   color: #dc3545;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 </style>

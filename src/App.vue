@@ -4,14 +4,13 @@ import Login from '@/components/login/login.vue';
 </script>
 
 <template>
-  <div v-if="$route.name !== 'login'">
+  <div v-if="$route.name !== 'login' & $route.name !== 'order'">
     <header>
       <Login></Login>
       <h1>Cписок товаров</h1>
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <router-link to="/add" class="navbar-brand">Добавить товар</router-link>
-          <router-link to="/order" class="navbar-brand">Оформить заказ</router-link>
           <router-link to="/" class="navbar-brand">Просмотр списка</router-link>
           <router-link to="/cart" class="navbar-brand">Корзина</router-link>
           <search-form></search-form>
