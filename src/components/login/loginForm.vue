@@ -27,7 +27,7 @@
       <ErrorMessage name="password" />
     </div>
     <div class="mb-3">
-      <button type="button" class="btn btn-primary">Войти</button>
+      <router-link to="/" class="btn btn-primary">Войти</router-link>
     </div>
     </div>
   </Form>
@@ -36,8 +36,13 @@
 <script setup>
 import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
+import { onBeforeRouteLeave} from 'vue-router'
 const passwordRules = yup.string().required().min(8);
 const loginRules = yup.string().required();
+
+onBeforeRouteLeave((to, from) => {
+  localStorage.setItem("productLogin", "1");
+})
 </script>
 
 <style scoped>
