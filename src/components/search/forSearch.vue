@@ -10,8 +10,6 @@ import { computed } from 'vue';
 const props = defineProps(['name', 'price']);
 const {goods} = useApi();
 
-console.log(goods);
-
 const goodsList = computed(goodsToShow);
 function goodsToShow() {
   return goods.value.filter(
