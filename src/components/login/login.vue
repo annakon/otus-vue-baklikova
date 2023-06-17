@@ -2,7 +2,7 @@
   <div class="container">
   <div class="row justify-content-end">
     <div class="col-1">
-      <a href="#">Войти</a>
+      <router-link to="login">Войти</router-link>
     </div>
   </div>
   </div>

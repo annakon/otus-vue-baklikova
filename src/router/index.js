@@ -34,6 +34,11 @@ const router = createRouter({
       path: '/cart',
       name: 'cart',
       component: () => import('../components/cart/cart.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../components/login/loginForm.vue')
     }
   ],
   scrollBehavior() {
