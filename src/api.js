@@ -29,7 +29,7 @@ export const useApi= ()=> {
             .finally(() => (loading.value = false));
     }
 
-    async function saveOrder(orderData) {
+    async function saveOrder(orderData,callback) {
         await fetch('https://reqbin.com/echo/post/json', {
             method: 'POST',
             headers: {
@@ -40,7 +40,7 @@ export const useApi= ()=> {
         })
             .then((response) => response.json())
             .then((response) => console.log(JSON.stringify(response)))
-            .then(() => alert('Ваш заказ оформлен'))
+            .then(callback)
             .catch((error) => {
                 alert(error);
             });
