@@ -1,6 +1,6 @@
 <script setup>
-import SearchForm from '@/components/search/searchForm.vue';
 import Login from '@/components/login/login.vue';
+import Navigation from "@/components/navigation/navigation.vue";
 </script>
 
 <template>
@@ -8,14 +8,7 @@ import Login from '@/components/login/login.vue';
     <header>
       <Login></Login>
       <h1>Cписок товаров</h1>
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <router-link to="/add" class="navbar-brand">Добавить товар</router-link>
-          <router-link to="/" class="navbar-brand">Просмотр списка</router-link>
-          <router-link to="/cart" class="navbar-brand">Корзина</router-link>
-          <search-form></search-form>
-        </div>
-      </nav>
+      <navigation></navigation>
     </header>
     <router-view />
   </div>
