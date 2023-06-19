@@ -9,7 +9,7 @@
         :rules="loginRules"
         type="text"
         class="form-control"
-        id="exampleInputEmail1"
+        id="exampleInputEmail1" v-model="nameNew"
       />
       <ErrorMessage name="login" />
       </div>
@@ -37,11 +37,13 @@
 import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { onBeforeRouteLeave} from 'vue-router'
+import {ref} from "vue";
 const passwordRules = yup.string().required().min(8);
 const loginRules = yup.string().required();
+const nameNew = ref('');
 
 onBeforeRouteLeave((to, from) => {
-  localStorage.setItem("productLogin", "1");
+  localStorage.setItem("productLogin", nameNew.value);
 })
 </script>
 
