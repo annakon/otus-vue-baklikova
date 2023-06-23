@@ -1,7 +1,12 @@
 import { defineStore } from 'pinia';
+import {computed, ref} from "vue";
 
 export const useUserStore = defineStore('user', () => {
 
+  const login=ref('');
+  const name = ref('');
+  const email = ref('');
+  const address = ref('');
   async function saveOrder(orderData, callback) {
     await fetch('https://reqbin.com/echo/post/json', {
       method: 'POST',
@@ -18,7 +23,11 @@ export const useUserStore = defineStore('user', () => {
         alert(error);
       });
   }
+  function  setUser() {
+    login.value=localStorage.getItem('productLogin');
+  }
+  const isNotAuthorized = computed( () =>login.value === '');
   return {
-    saveOrder
+    saveOrder, setUser, isNotAuthorized, login, name, email, address
   };
 });
