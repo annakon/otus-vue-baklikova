@@ -24,21 +24,22 @@
       <button @click="addNew" class="btn btn-primary">Добавить</button>
     </div>
   </Form>
-  <display-search :goods-list="goods"></display-search>
+  <display-search :goods-list="storeCatalog.goods"></display-search>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
-import { useApi } from '@/api';
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
 
 const nameNew = ref('');
 const descriptionNew = ref('');
 const priceNew = ref();
 const priceRules = yup.number().required().positive();
-const { goods } = useApi();
+import {useCatalogStore} from "@/stores/catalog";
+
+const storeCatalog = useCatalogStore();
 
 function addNew(event) {
   let newObj = {
@@ -47,14 +48,14 @@ function addNew(event) {
     rating: { rate: 0, count: 0 },
     buttonDisabled: true
   };
-  newObj.id = goods.value.length + 1;
+  newObj.id = storeCatalog.goods.value.length + 1;
   newObj.title = nameNew.value;
   newObj.price = priceNew.value;
   newObj.description = descriptionNew.value;
   nameNew.value = '';
   priceNew.value = '';
   descriptionNew.value = '';
-  goods.value.unshift(newObj);
+  storeCatalog.goods.value.unshift(newObj);
 }
 </script>
 
