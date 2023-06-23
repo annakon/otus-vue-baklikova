@@ -1,4 +1,6 @@
-export const useApi = () => {
+import { defineStore } from 'pinia';
+
+export const useUserStore = defineStore('user', () => {
 
   async function saveOrder(orderData, callback) {
     await fetch('https://reqbin.com/echo/post/json', {
@@ -19,4 +21,4 @@ export const useApi = () => {
   return {
     saveOrder
   };
-};
+});
