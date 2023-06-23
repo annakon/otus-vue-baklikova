@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import axios from "axios";
 
 export const useCatalogStore = defineStore('catalog', () => {
-    const goods = ref();
+    const goods = reactive([]);
     const errored = ref();
     const loading = ref(true);
     const request = 'https://fakestoreapi.com/products';
@@ -12,7 +12,7 @@ export const useCatalogStore = defineStore('catalog', () => {
     async function requestGoods() {
         await axios
             .get(request)
-            .then((response) => (goods.value = response.data))
+            .then((response) => (goods.push(...response.data)))
             .catch((error) => {
                 console.log(error);
                 errored.value = true;

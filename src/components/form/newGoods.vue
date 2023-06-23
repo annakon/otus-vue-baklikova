@@ -48,14 +48,14 @@ function addNew(event) {
     rating: { rate: 0, count: 0 },
     buttonDisabled: true
   };
-  newObj.id = storeCatalog.goods.value.length + 1;
+  newObj.id = storeCatalog.goods.length + 1;
   newObj.title = nameNew.value;
   newObj.price = priceNew.value;
   newObj.description = descriptionNew.value;
   nameNew.value = '';
   priceNew.value = '';
   descriptionNew.value = '';
-  storeCatalog.goods.value.unshift(newObj);
+  storeCatalog.goods.unshift(newObj);
 }
 </script>
 
