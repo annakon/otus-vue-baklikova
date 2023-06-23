@@ -13,11 +13,9 @@
 
 <script setup>
 import SearchForm from '@/components/search/searchForm.vue';
-import {ref} from "vue";
-const isAdmin= ref(false);
-isAdmin.value = (localStorage.getItem('productLogin') === 'admin');
+import { ref } from 'vue';
+const isAdmin = ref(false);
+isAdmin.value = localStorage.getItem('productLogin') === 'admin';
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

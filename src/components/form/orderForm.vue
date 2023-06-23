@@ -37,23 +37,23 @@
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import { useApi } from '@/api';
-import {useRouter} from "vue-router";
+import { useRouter } from 'vue-router';
 
 const nameNew = ref('');
 const email = ref('');
 const address = ref('');
-const {saveOrder} = useApi();
+const { saveOrder } = useApi();
 
 const router = useRouter();
 
-const callback =() => {
+const callback = () => {
   alert('Ваш заказ оформлен');
-  router.push({ name: 'main'});
-}
+  router.push({ name: 'main' });
+};
 
 function onSubmit(values) {
   console.log(values);
-  saveOrder(values,callback);
+  saveOrder(values, callback);
 }
 
 const schema = {

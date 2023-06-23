@@ -8,7 +8,7 @@ import { useApi } from '@/api';
 import { computed } from 'vue';
 
 const props = defineProps(['name', 'price']);
-const {goods} = useApi();
+const { goods } = useApi();
 
 const goodsList = computed(goodsToShow);
 function goodsToShow() {

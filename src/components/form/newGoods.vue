@@ -38,7 +38,7 @@ const nameNew = ref('');
 const descriptionNew = ref('');
 const priceNew = ref();
 const priceRules = yup.number().required().positive();
-const {goods} = useApi();
+const { goods } = useApi();
 
 function addNew(event) {
   let newObj = {

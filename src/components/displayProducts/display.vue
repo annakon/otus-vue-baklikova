@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import {useApi} from '@/api';
+import { useApi } from '@/api';
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
 import { onMounted } from 'vue';
 

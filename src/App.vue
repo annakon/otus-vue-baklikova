@@ -1,6 +1,6 @@
 <script setup>
 import Login from '@/components/login/login.vue';
-import Navigation from "@/components/navigation/navigation.vue";
+import Navigation from '@/components/navigation/navigation.vue';
 </script>
 
 <template>

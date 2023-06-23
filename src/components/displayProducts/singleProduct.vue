@@ -43,7 +43,6 @@ import { useApi } from '@/api';
 const { errored, loading, requestProduct, product } = useApi();
 
 requestProduct('https://fakestoreapi.com/products/' + props.id);
-
 </script>
 
 <style scoped>
