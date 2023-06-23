@@ -37,7 +37,7 @@
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import { useRouter } from 'vue-router';
-import {useUserStore} from "@/stores/user";
+import { useUserStore } from '@/stores/user';
 
 const storeUser = useUserStore();
 

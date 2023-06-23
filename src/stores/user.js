@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia';
-import {computed, ref} from "vue";
+import { computed, ref } from 'vue';
 
 export const useUserStore = defineStore('user', () => {
-
-  const login=ref('');
+  const login = ref('');
   const name = ref('');
   const email = ref('');
   const address = ref('');
@@ -23,11 +22,17 @@ export const useUserStore = defineStore('user', () => {
         alert(error);
       });
   }
-  function  setUser() {
-    login.value=localStorage.getItem('productLogin');
+  function setUser() {
+    login.value = localStorage.getItem('productLogin');
   }
-  const isNotAuthorized = computed( () =>login.value === '');
+  const isNotAuthorized = computed(() => login.value === '');
   return {
-    saveOrder, setUser, isNotAuthorized, login, name, email, address
+    saveOrder,
+    setUser,
+    isNotAuthorized,
+    login,
+    name,
+    email,
+    address
   };
 });

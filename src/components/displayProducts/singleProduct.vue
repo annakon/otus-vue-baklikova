@@ -39,7 +39,7 @@
 
 <script setup>
 const props = defineProps(['id']);
-import {useCatalogStore} from "@/stores/catalog";
+import { useCatalogStore } from '@/stores/catalog';
 
 const storeCatalog = useCatalogStore();
 

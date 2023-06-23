@@ -14,7 +14,7 @@
 <script setup>
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
 import { onMounted } from 'vue';
-import {useCatalogStore} from "@/stores/catalog";
+import { useCatalogStore } from '@/stores/catalog';
 
 const storeCatalog = useCatalogStore();
 onMounted(storeCatalog.requestGoods);

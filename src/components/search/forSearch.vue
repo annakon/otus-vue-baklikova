@@ -7,7 +7,7 @@ import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
 import { computed } from 'vue';
 
 const props = defineProps(['name', 'price']);
-import {useCatalogStore} from "@/stores/catalog";
+import { useCatalogStore } from '@/stores/catalog';
 
 const storeCatalog = useCatalogStore();
 

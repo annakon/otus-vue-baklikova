@@ -37,7 +37,7 @@ const nameNew = ref('');
 const descriptionNew = ref('');
 const priceNew = ref();
 const priceRules = yup.number().required().positive();
-import {useCatalogStore} from "@/stores/catalog";
+import { useCatalogStore } from '@/stores/catalog';
 
 const storeCatalog = useCatalogStore();
 
