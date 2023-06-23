@@ -1,5 +1,6 @@
 <template>
   <Form class="row g-3" @submit="onSubmit" :validation-schema="schema">
+    <h1>Оформление заказа</h1>
     <div class="col-md-8">
       <label for="nameGoods">ФИО</label>
       <field name="FIO" type="text" class="form-control" id="nameGoods" v-model="nameNew" />
@@ -35,15 +36,24 @@
 <script setup>
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import { saveOrder } from '@/api';
+import { useApi } from '@/api';
+import {useRouter} from "vue-router";
 
 const nameNew = ref('');
 const email = ref('');
 const address = ref('');
+const {saveOrder} = useApi();
+
+const router = useRouter();
+
+const callback =() => {
+  alert('Ваш заказ оформлен');
+  router.push({ name: 'main'});
+}
 
 function onSubmit(values) {
   console.log(values);
-  saveOrder(values);
+  saveOrder(values,callback);
 }
 
 const schema = {
@@ -72,12 +82,16 @@ const schema = {
   margin: 0;
 }
 form {
-  margin: 1rem;
+  margin: 10rem;
 }
 span {
   display: block;
   font-size: 80%;
   margin-top: 0.25rem;
   color: #dc3545;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 </style>
