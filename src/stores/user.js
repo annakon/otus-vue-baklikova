@@ -27,7 +27,7 @@ export const useUserStore = defineStore('user', () => {
   }
   function logout() {
     localStorage.setItem('productLogin', '');
-    login.value='';
+    login.value = '';
   }
   const isNotAuthorized = computed(() => login.value === '');
   const isAdmin = computed(() => login.value === 'admin');
