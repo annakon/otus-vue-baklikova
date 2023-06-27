@@ -4,7 +4,7 @@
   </div>
   <div class="login" v-else>
     <h5>{{ storeUser.login }}</h5>
-    <router-link to="login">Выйти</router-link>
+    <a href="#" @click="storeUser.logout()">Выйти</a>
   </div>
 </template>
 
