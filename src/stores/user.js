@@ -30,6 +30,7 @@ export const useUserStore = defineStore('user', () => {
     login.value='';
   }
   const isNotAuthorized = computed(() => login.value === '');
+  const isAdmin = computed(() => login.value === 'admin');
   return {
     logout,
     saveOrder,
@@ -38,6 +39,7 @@ export const useUserStore = defineStore('user', () => {
     login,
     name,
     email,
-    address
+    address,
+    isAdmin
   };
 });
