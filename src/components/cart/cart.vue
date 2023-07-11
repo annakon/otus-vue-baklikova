@@ -1,5 +1,6 @@
 <template>
   <GoodsItemCart v-for="item in storeCart.cart" :key="item.id" :cart="item"> </GoodsItemCart>
+  <div class="row total">Стоимость товаров в корзине:  {{storeCart.totalSum}}</div>
   <button @click="storeCart.clearCart" class="btn btn-primary" type="button">
     Очистить корзину
   </button>
@@ -14,7 +15,7 @@ const storeCart = useCartStore();
 </script>
 
 <style scoped>
-button {
+button,.total {
   margin-left: 2rem;
 }
 </style>
