@@ -1,5 +1,5 @@
 <template>
-  <GoodsItemCart v-for="item in storeCart.cart" :key="item.id" :cart="item"> </GoodsItemCart>
+  <GoodsItemCart v-for="item in storeCart.cart.values()" :key="item.id" :cart="item"> </GoodsItemCart>
   <div class="row total">Стоимость товаров в корзине:  {{storeCart.totalSum}}</div>
   <button @click="storeCart.clearCart" class="btn btn-primary" type="button">
     Очистить корзину
