@@ -29,7 +29,7 @@
         <button
           @click="
             () => {
-              addToCart(props.goods);
+              storeCart.addToCart(props.goods);
             }
           "
           class="btn btn-primary"
@@ -44,7 +44,8 @@
 
 <script setup>
 const props = defineProps(['goods']);
-import { addToCart } from '@/cart';
+import { useCartStore } from '@/stores/cart';
+const storeCart = useCartStore();
 </script>
 
 <style scoped>
