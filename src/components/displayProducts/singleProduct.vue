@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import {onBeforeMount, ref} from "vue";
+import { onBeforeMount, ref } from 'vue';
 
 const props = defineProps(['id']);
 import { useCatalogStore } from '@/stores/catalog';
@@ -48,10 +48,12 @@ const storeCatalog = useCatalogStore();
 const product = ref();
 const errored = ref();
 onBeforeMount(async () => {
-  const {data, error}  =await storeCatalog.requestProduct('https://fakestoreapi.com/products/' + props.id);
+  const { data, error } = await storeCatalog.requestProduct(
+    'https://fakestoreapi.com/products/' + props.id
+  );
   console.log(data);
-  if(data) product.value=data;
-  errored.value=error;
+  if (data) product.value = data;
+  errored.value = error;
 });
 </script>
 

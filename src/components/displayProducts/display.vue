@@ -13,16 +13,16 @@
 
 <script setup>
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
-import {onMounted, reactive, ref} from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import { useCatalogStore } from '@/stores/catalog';
 
 const goods = reactive([]);
 const errored = ref();
 const storeCatalog = useCatalogStore();
 onMounted(async () => {
-  const {data, error}  = await storeCatalog.requestGoods();
-  if(data) goods.push(...data);
-  errored.value=error;
+  const { data, error } = await storeCatalog.requestGoods();
+  if (data) goods.push(...data);
+  errored.value = error;
 });
 </script>
 

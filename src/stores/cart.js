@@ -1,4 +1,4 @@
-import {ref} from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useCartStore = defineStore('cart', () => {
@@ -10,19 +10,19 @@ export const useCartStore = defineStore('cart', () => {
 
     if (item) {
       item.quantity++;
-      totalSum.value=totalSum.value + product.price * item.quantity;
+      totalSum.value = totalSum.value + product.price * item.quantity;
       alert('В корзине: ' + item.quantity);
     } else {
       cart.value.set(product.id, { ...product, quantity: 1 });
-      totalSum.value=totalSum.value + product.price;
+      totalSum.value = totalSum.value + product.price;
       alert('В корзине: 1');
     }
   }
 
   function clearCart() {
     cart.value.clear();
-    totalSum.value=0;
+    totalSum.value = 0;
   }
 
-  return { cart, addToCart, clearCart, totalSum};
+  return { cart, addToCart, clearCart, totalSum };
 });
