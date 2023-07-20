@@ -3,12 +3,12 @@ import { defineStore } from 'pinia';
 import axios from 'axios';
 
 export const useCatalogStore = defineStore('catalog', () => {
-  const loading = ref(true);
+  const loading = ref(false);
   const request = 'https://fakestoreapi.com/products';
 
   async function requestGoods() {
     return new Promise(async (resolve) => {
-      loading.value = false;
+      loading.value = true;
       await axios
         .get(request)
         .then((response) => {
@@ -25,7 +25,7 @@ export const useCatalogStore = defineStore('catalog', () => {
 
   async function requestProduct(requestOneProduct) {
     return new Promise(async (resolve) => {
-      loading.value = false;
+      loading.value = true;
       await axios
         .get(requestOneProduct)
         .then((response) => {
