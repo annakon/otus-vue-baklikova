@@ -21,6 +21,7 @@ const errored = ref();
 const storeCatalog = useCatalogStore();
 onMounted(async () => {
   const { data, error } = await storeCatalog.requestGoods();
+  goods.push(...storeCatalog.newGoods);
   if (data) goods.push(...data);
   errored.value = error;
 });

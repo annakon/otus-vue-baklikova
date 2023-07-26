@@ -24,11 +24,11 @@
       <button @click="addNew" class="btn btn-primary">Добавить</button>
     </div>
   </Form>
-  <display-search :goods-list="storeCatalog.goods"></display-search>
+  <display-search :goods-list="goods"></display-search>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {onMounted, reactive, ref} from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
@@ -39,7 +39,15 @@ const priceNew = ref();
 const priceRules = yup.number().required().positive();
 import { useCatalogStore } from '@/stores/catalog';
 
+const goods = reactive([]);
+const errored = ref();
 const storeCatalog = useCatalogStore();
+onMounted(async () => {
+  const { data, error } = await storeCatalog.requestGoods();
+  goods.push(...storeCatalog.newGoods);
+  if (data) goods.push(...data);
+  errored.value = error;
+});
 
 function addNew(event) {
   let newObj = {
@@ -48,14 +56,15 @@ function addNew(event) {
     rating: { rate: 0, count: 0 },
     buttonDisabled: true
   };
-  newObj.id = storeCatalog.goods.length + 1;
+  newObj.id = goods.length + 1;
   newObj.title = nameNew.value;
   newObj.price = priceNew.value;
   newObj.description = descriptionNew.value;
   nameNew.value = '';
   priceNew.value = '';
   descriptionNew.value = '';
-  storeCatalog.goods.unshift(newObj);
+  goods.unshift(newObj);
+  storeCatalog.newGoods.unshift(newObj);
 }
 </script>
 
