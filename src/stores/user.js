@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
+import axios from "axios";
 
 export const useUserStore = defineStore('user', () => {
   const login = ref('');
@@ -7,15 +8,12 @@ export const useUserStore = defineStore('user', () => {
   const email = ref('');
   const address = ref('');
   async function saveOrder(orderData, callback) {
-    await fetch('https://reqbin.com/echo/post/json', {
-      method: 'POST',
+    await axios.post('https://reqbin.com/echo/post/json', JSON.stringify(orderData),{
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(orderData)
+      }
     })
-      .then((response) => response.json())
       .then((response) => console.log(JSON.stringify(response)))
       .then(callback)
       .catch((error) => {
