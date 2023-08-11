@@ -1,13 +1,22 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-end">
-      <div class="col-1">
-        <router-link to="login">Войти</router-link>
-      </div>
-    </div>
+  <div class="login" v-if="storeUser.isNotAuthorized">
+    <router-link to="login">Войти</router-link>
+  </div>
+  <div class="login" v-else>
+    <h5>{{ storeUser.login }}</h5>
+    <a href="#" @click="storeUser.logout()">Выйти</a>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useUserStore } from '@/stores/user';
 
-<style scoped></style>
+const storeUser = useUserStore();
+storeUser.setUser();
+</script>
+
+<style scoped>
+.login {
+  text-align: right;
+}
+</style>

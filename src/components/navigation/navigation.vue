@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <div v-if="isAdmin">
+      <div v-if="storeUser.isAdmin">
         <router-link to="/add" class="navbar-brand">Добавить товар</router-link>
       </div>
       <router-link to="/" class="navbar-brand">Просмотр списка</router-link>
@@ -13,11 +13,9 @@
 
 <script setup>
 import SearchForm from '@/components/search/searchForm.vue';
-import {ref} from "vue";
-const isAdmin= ref(false);
-isAdmin.value = (localStorage.getItem('productLogin') === 'admin');
+import { useUserStore } from '@/stores/user';
+
+const storeUser = useUserStore();
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -4,15 +4,16 @@
 
 <script setup>
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
-import { useApi } from '@/api';
 import { computed } from 'vue';
 
 const props = defineProps(['name', 'price']);
-const {goods} = useApi();
+import { useCatalogStore } from '@/stores/catalog';
+
+const storeCatalog = useCatalogStore();
 
 const goodsList = computed(goodsToShow);
 function goodsToShow() {
-  return goods.value.filter(
+  return storeCatalog.goods.filter(
     (t) =>
       (t?.price === Number(props.price) || props.price === '') &&
       t?.title.indexOf(props.name) !== -1

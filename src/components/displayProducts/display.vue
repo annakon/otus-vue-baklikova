@@ -6,19 +6,25 @@
   </section>
 
   <section v-else>
-    <div v-if="loading">Loading...</div>
+    <div v-if="storeCatalog.loading">Loading...</div>
     <display-search :goods-list="goods"></display-search>
   </section>
 </template>
 
 <script setup>
-import {useApi} from '@/api';
 import DisplaySearch from '@/components/displayProducts/displaySearch.vue';
-import { onMounted } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
+import { useCatalogStore } from '@/stores/catalog';
 
-const { errored, loading, requestGoods, goods } = useApi();
-
-onMounted(requestGoods);
+const goods = reactive([]);
+const errored = ref();
+const storeCatalog = useCatalogStore();
+onMounted(async () => {
+  const { data, error } = await storeCatalog.requestGoods();
+  goods.push(...storeCatalog.newGoods);
+  if (data) goods.push(...data);
+  errored.value = error;
+});
 </script>
 
 <style scoped></style>

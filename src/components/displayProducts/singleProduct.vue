@@ -1,12 +1,12 @@
 <template>
-  <section v-if="errored">
+  <section v-if="storeCatalog.errored">
     <p>
       We're sorry, we're not able to retrieve this information at the moment, please try back later
     </p>
   </section>
 
   <section v-else>
-    <div v-if="loading">Loading...</div>
+    <div v-if="storeCatalog.loading">Loading...</div>
     <div v-else class="container">
       <h1>{{ product.title }}</h1>
       <div class="row">
@@ -38,12 +38,23 @@
 </template>
 
 <script setup>
+import { onBeforeMount, ref } from 'vue';
+
 const props = defineProps(['id']);
-import { useApi } from '@/api';
-const { errored, loading, requestProduct, product } = useApi();
+import { useCatalogStore } from '@/stores/catalog';
 
-requestProduct('https://fakestoreapi.com/products/' + props.id);
+const storeCatalog = useCatalogStore();
 
+const product = ref();
+const errored = ref();
+onBeforeMount(async () => {
+  const { data, error } = await storeCatalog.requestProduct(
+    'https://fakestoreapi.com/products/' + props.id
+  );
+  console.log(data);
+  if (data) product.value = data;
+  errored.value = error;
+});
 </script>
 
 <style scoped>
