@@ -3,6 +3,7 @@ import {describe, it, expect, vi, beforeEach} from 'vitest';
 import { mount} from '@vue/test-utils';
 import component from '@/components/displayProducts/GoodsItem.vue';
 import {createPinia, setActivePinia} from "pinia";
+import {useCartStore} from "@/stores/cart";
 
 vi.mock('vue-router')
 describe('GoodsItem', () => {
@@ -31,5 +32,13 @@ describe('GoodsItem', () => {
     window.alert = vi.fn();
     await Control.trigger("click");
     expect(window.alert).toBeCalled();
+  });
+  it("add to cart ", async () => {
+    const Control = wrapper.find('button');
+    expect(Control.exists()).toBe(true);
+    window.alert = vi.fn();
+    await Control.trigger("click");
+    const cart = useCartStore();
+    expect(cart.cart.get(1)).toStrictEqual({...item,...{quantity:1}});
   });
 });
