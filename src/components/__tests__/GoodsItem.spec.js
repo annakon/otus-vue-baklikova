@@ -1,0 +1,22 @@
+import {describe, it, expect, vi, beforeEach} from 'vitest';
+
+import { mount} from '@vue/test-utils';
+import component from '@/components/displayProducts/GoodsItem.vue';
+import {createPinia, setActivePinia} from "pinia";
+
+vi.mock('vue-router')
+describe('GoodsItem', () => {
+  const item = {"id":1,"title":"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}};
+  let wrapper
+
+  beforeEach(() => {
+    setActivePinia(createPinia())
+    wrapper = mount(component, { global: {
+        stubs: ['RouterLink'],
+      },props: { goods:item } });
+  })
+  it('renders properly', () => {
+    expect(wrapper).toBeDefined();
+    expect(wrapper.exists()).toBe(true);
+  });
+});
