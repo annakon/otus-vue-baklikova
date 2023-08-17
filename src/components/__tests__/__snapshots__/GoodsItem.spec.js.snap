@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`GoodsItem > renders all 1`] = `
+"<div data-v-f80bcfde=\\"\\" class=\\"card text-center\\"><img data-v-f80bcfde=\\"\\" class=\\"card-img-top\\" src=\\"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg\\" alt=\\"Card image\\">
+  <div data-v-f80bcfde=\\"\\" class=\\"cardBody\\">
+    <h5 data-v-f80bcfde=\\"\\" class=\\"card-title\\">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h5>
+    <h6 data-v-f80bcfde=\\"\\" class=\\"card-subtitle mb-2 text-muted\\">109.95</h6>
+    <p data-v-f80bcfde=\\"\\" class=\\"card-text\\">Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday</p>
+    <p data-v-f80bcfde=\\"\\" class=\\"card-text text-muted\\"> rate: 3.9 count: 120</p>
+    <section data-v-f80bcfde=\\"\\">
+      <router-link-stub data-v-f80bcfde=\\"\\" to=\\"[object Object]\\" class=\\"btn btn-primary\\"></router-link-stub><button data-v-f80bcfde=\\"\\" class=\\"btn btn-primary\\" type=\\"button\\"> В корзину </button>
+    </section>
+  </div>
+</div>"
+`;

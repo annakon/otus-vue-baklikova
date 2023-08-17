@@ -19,4 +19,17 @@ describe('GoodsItem', () => {
     expect(wrapper).toBeDefined();
     expect(wrapper.exists()).toBe(true);
   });
+  it("contain в корзину", () => {
+    expect(wrapper.html()).toContain("В корзину");
+  });
+  it("renders all", () => {
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+  it("call alert", async () => {
+    const Control = wrapper.find('button');
+    expect(Control.exists()).toBe(true);
+    window.alert = vi.fn();
+    await Control.trigger("click");
+    expect(window.alert).toBeCalled();
+  });
 });
