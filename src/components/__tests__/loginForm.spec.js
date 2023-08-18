@@ -19,4 +19,10 @@ describe("loginForm", () => {
     it("renders all", () => {
         expect(wrapper.html()).toMatchSnapshot();
     });
+    it("button click", () => {
+        const inputControl = wrapper.find('[id="exampleInputPassword1"]')
+        inputControl.setValue('12345678')
+        inputControl.trigger("blur");
+        expect(wrapper.text()).not.toContain("this is a required field");
+    });
 });
