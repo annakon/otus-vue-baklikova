@@ -41,4 +41,12 @@ describe('GoodsItem', () => {
     const cart = useCartStore();
     expect(cart.cart.get(1)).toStrictEqual({...item,...{quantity:1}});
   });
+  it("total Sum ", async () => {
+    const Control = wrapper.find('button');
+    expect(Control.exists()).toBe(true);
+    window.alert = vi.fn();
+    await Control.trigger("click");
+    const cart = useCartStore();
+    expect(cart.totalSum).toBe(109.95);
+  });
 });
