@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`loginForm > renders all 1`] = `
+"<form data-v-12794ea3=\\"\\" novalidate=\\"\\">
+  <h1 data-v-12794ea3=\\"\\">Войти</h1>
+  <div data-v-12794ea3=\\"\\" class=\\"mb-3 row\\"><label data-v-12794ea3=\\"\\" for=\\"exampleInputEmail1\\" class=\\"col-sm-2 col-form-label\\">логин</label>
+    <div data-v-12794ea3=\\"\\" class=\\"col-sm-8\\"><input data-v-12794ea3=\\"\\" type=\\"text\\" class=\\"form-control\\" id=\\"exampleInputEmail1\\" name=\\"login\\">
+      <!---->
+    </div>
+  </div>
+  <div data-v-12794ea3=\\"\\" class=\\"mb-3 row\\"><label data-v-12794ea3=\\"\\" for=\\"exampleInputPassword1\\" class=\\"col-sm-2 col-form-label\\">пароль</label>
+    <div data-v-12794ea3=\\"\\" class=\\"col-sm-8\\"><input data-v-12794ea3=\\"\\" class=\\"form-control\\" type=\\"password\\" id=\\"exampleInputPassword1\\" name=\\"password\\">
+      <!---->
+    </div>
+    <div data-v-12794ea3=\\"\\" class=\\"mb-3\\">
+      <router-link-stub data-v-12794ea3=\\"\\" to=\\"/\\" class=\\"btn btn-primary\\"></router-link-stub>
+    </div>
+  </div>
+</form>"
+`;
