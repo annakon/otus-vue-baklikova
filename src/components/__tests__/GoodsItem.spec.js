@@ -1,4 +1,4 @@
-import {describe, it, expect, vi, beforeEach} from 'vitest';
+import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
 
 import { mount} from '@vue/test-utils';
 import component from '@/components/displayProducts/GoodsItem.vue';
@@ -49,4 +49,16 @@ describe('GoodsItem', () => {
     const cart = useCartStore();
     expect(cart.totalSum).toBe(109.95);
   });
+  it("total Sum 2", async () => {
+    const Control = wrapper.find('button');
+    expect(Control.exists()).toBe(true);
+    window.alert = vi.fn();
+    await Control.trigger("click");
+    await Control.trigger("click");
+    const cart = useCartStore();
+    expect(cart.totalSum).toBe(109.95*2);
+  });
+  afterEach(()=>{
+    vi.clearAllMocks();
+  })
 });

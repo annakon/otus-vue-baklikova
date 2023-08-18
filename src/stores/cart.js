@@ -10,13 +10,12 @@ export const useCartStore = defineStore('cart', () => {
 
     if (item) {
       item.quantity++;
-      totalSum.value = totalSum.value + product.price * item.quantity;
       alert('В корзине: ' + item.quantity);
     } else {
       cart.value.set(product.id, { ...product, quantity: 1 });
-      totalSum.value = totalSum.value + product.price;
       alert('В корзине: 1');
     }
+    totalSum.value = totalSum.value + product.price;
   }
 
   function clearCart() {
